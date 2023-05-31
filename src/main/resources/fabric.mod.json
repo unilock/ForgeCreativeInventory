@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "forgecreativeinv",
+  "version": "${version}",
+
+  "name": "Forge Creative Inventory",
+  "description": "Forge's creative mode inventory on Fabric",
+  "authors": [
+    "unilock"
+  ],
+  "contact": {
+    "sources": "https://github.com/unilock/ForgeCreativeInventory"
+  },
+
+  "license": "MIT",
+  "icon": "assets/forgecreativeinv/icon.png",
+
+  "environment": "client",
+  "mixins": [
+    "forgecreativeinv.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": ">=1.19.2"
+  }
+}
