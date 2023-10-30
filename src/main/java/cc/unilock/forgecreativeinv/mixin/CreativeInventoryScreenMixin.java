@@ -96,8 +96,10 @@ public abstract class CreativeInventoryScreenMixin<T extends ScreenHandler> exte
         //int xpos = x + 116;
         //int ypos = y - 10;
 
-        addDrawableChild(new ButtonWidget(x, y - 50, 20, 20, Text.literal("<"), b -> fabric_previousPage()));
-        addDrawableChild(new ButtonWidget(x + backgroundWidth - 20, y - 50, 20, 20, Text.literal(">"), b -> fabric_nextPage()));
+        if (fabric_maxPages > 1) {
+            addDrawableChild(new ButtonWidget(x, y - 50, 20, 20, Text.literal("<"), b -> fabric_previousPage()));
+            addDrawableChild(new ButtonWidget(x + backgroundWidth - 20, y - 50, 20, 20, Text.literal(">"), b -> fabric_nextPage()));
+        }
 
         //addDrawableChild(new FabricCreativeGuiComponents.ItemGroupButtonWidget(xpos + 11, ypos, FabricCreativeGuiComponents.Type.NEXT, this));
         //addDrawableChild(new FabricCreativeGuiComponents.ItemGroupButtonWidget(xpos, ypos, FabricCreativeGuiComponents.Type.PREVIOUS, this));
@@ -105,7 +107,7 @@ public abstract class CreativeInventoryScreenMixin<T extends ScreenHandler> exte
 
     @Inject(method = "render", at = @At("RETURN"))
     private void render(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if (fabric_maxPages != 0) {
+        if (fabric_maxPages > 1) {
             Text page = Text.literal(String.format("%d / %d", fabric_currentPage() + 1, fabric_maxPages));
             this.setZOffset(300);
             this.itemRenderer.zOffset = 300.0F;

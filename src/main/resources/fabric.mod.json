@@ -16,6 +16,11 @@
   "icon": "assets/forgecreativeinv/icon.png",
 
   "environment": "client",
+  "entrypoints": {
+    "mixinsquared": [
+      "cc.unilock.forgecreativeinv.FCIMixinCanceller"
+    ]
+  },
   "mixins": [
     "forgecreativeinv.mixins.json"
   ],
